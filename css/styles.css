@@ -1,0 +1,28 @@
+h2{
+	font-size: 1.5em;
+}
+
+input[type=email]:disabled,
+input[type=text]:disabled,
+input[type=tel]:disabled,
+select:disabled
+ {
+	background: #dddddd;
+	color: rgba(0,0,0,0.6);
+}
+
+input.wp_information_input {
+	width: 200px;
+}
+
+section {
+	display: flex;
+}
+div.boite {
+	width: 45%;
+	margin: 20px;
+}
+
+table tr{
+	padding: 5px;
+}

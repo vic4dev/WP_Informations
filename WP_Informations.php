@@ -33,7 +33,7 @@ function Wp_Plugin_Menu_Primary() {
 }
 add_action('admin_menu', 'Wp_Plugin_Menu_Primary');
 
-function test() {
+function wp_informations_adminbar() {
   global $wp_admin_bar;
   $url_once = admin_url();
   $wp_admin_bar->add_menu(array(
@@ -54,26 +54,113 @@ function test() {
     'parent'=> 'wp_information',
     'href'  => $url_once . "admin.php?page=wp_about_market"
     ) ); 
-  $wp_admin_bar->add_menu(array(
-    'id'    => 'Wp_about_design',
-    'title' => 'Design',
-    'parent'=> 'wp_information',
-    'href'  => $url_once . "admin.php?page=wp_about_design"
-    ) );
-
 }
+add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
 
-// Test
-add_action('wp_before_admin_bar_render', 'test' );
 
+// Contenu de la Settings Page Principale
 function wp_informations_settings() {
+
+    wp_register_style( 'add_admin_CSS', plugins_url( '/css/styles.css',__FILE__ ) );
+    wp_enqueue_style( 'add_admin_CSS' );
+    add_action( 'wp_enqueue_scripts', 'wpp_add_assets' );
     ?>
-    <h3>Ci dessous les différentes informations des personnes selon leur role</h3>
-    <?php  global $wp_admin_bar; var_dump($wp_admin_bar);
+    <br/>
+    <h3>Ci-dessous les différentes informations des personnes selon leur spécialité</h3>
+    <br>
+    <section>
+        <div class="boite">
+            <h2 class="role">Développeur</h2>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">Prénom :</th>
+                    <td><input class="wp_information_input" type="text" name="wp-info-name-dev" 
+                    value="<?php echo get_option('wp-info-name-dev'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Pseudo @Twitter :</th>
+                    <td><input class="wp_information_input" type="text" name="wp-info-twitter-dev" 
+                    value="<?php echo get_option('wp-info-twitter-dev'); ?>" disabled='disabled' /></td>
+                </tr>
+                 
+                <tr>
+                    <th scope="row">Numéro de téléphone :</th>
+                    <td><input class="wp_information_input" type="tel" name="wp-info-tel-dev" 
+                    value="<?php echo get_option('wp-info-tel-dev'); ?>" disabled='disabled' /></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row">Email :</th>
+                    <td><input class="wp_information_input" type="email" name="wp-info-email-dev" 
+                    value="<?php echo get_option('wp-info-email-dev'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Rôle :</th>
+                    <td>
+                        <select name="select" disabled='disabled'>
+                            <option name ="test1" value="<?php echo get_option('test1'); ?>">Administrateur</option> 
+                            <option name ="test2" value="<?php echo get_option('test2'); ?>">Editeur</option>
+                            <option name ="test3" value="<?php echo get_option('test3'); ?>">Auteur</option>
+                            <option name ="test4" value="<?php echo get_option('test4'); ?>">Contributeur</option>
+                            <option name ="test5" value="<?php echo get_option('test5'); ?>">Abonné</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <a href="admin.php?page=wp_about_dev">Modifier</a>
+            </p>
+        </div>
+        <div class="boite">
+            <h2 class="role">Marketeur</h2>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">Prénom :</th>
+                    <td><input class="wp_information_input" type="text" name="wp-info-name-market" 
+                    value="<?php echo get_option('wp-info-name-market'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Pseudo @Twitter :</th>
+                    <td><input class="wp_information_input" type="text" name="wp-info-twitter-market" 
+                    value="<?php echo get_option('wp-info-twitter-market'); ?>" disabled='disabled' /></td>
+                </tr>
+                 
+                <tr>
+                    <th scope="row">Numéro de téléphone :</th>
+                    <td><input class="wp_information_input" type="tel" name="wp-info-tel-market" 
+                    value="<?php echo get_option('wp-info-tel-market'); ?>" disabled='disabled' /></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row">Email :</th>
+                    <td><input class="wp_information_input" type="email" name="wp-info-email-market" 
+                    value="<?php echo get_option('wp-info-email-market'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Rôle :</th>
+                    <td>
+                        <select name="select" disabled='disabled'>
+                            <option name ="test1" value="<?php echo get_option('test1'); ?>">Administrateur</option> 
+                            <option name ="test2" value="<?php echo get_option('test2'); ?>">Editeur</option>
+                            <option name ="test3" value="<?php echo get_option('test3'); ?>">Auteur</option>
+                            <option name ="test4" value="<?php echo get_option('test4'); ?>">Contributeur</option>
+                            <option name ="test5" value="<?php echo get_option('test5'); ?>">Abonné</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <p><a href="admin.php?page=wp_about_market">Modifier</a></p>
+        </div>
+    </section>
+    <?php
 }
 
-// Ajout des submenus de la Settings page
- function wp_informations_menu_dev() {
+// Ajout des submenus dans la sidebar
+ function wp_informations_submenu() {
 
     $plugin_name = 'WP Informations';
     $plugin_capability = 'administrator';
@@ -107,22 +194,8 @@ function wp_informations_settings() {
         // $function 
         'wp_informations_about_market'
         );
-    add_submenu_page( 
-        // $parent_slug
-        $plugin_menu_slug,
-        // $page_title
-        'Design - ' . $plugin_name,
-        // $menu_title 
-        'Design',
-        // $capability
-        $plugin_capability,
-        // $menu_slug
-        'wp_about_design',
-        // $function 
-        'wp_informations_about_design'
-        );
  }
-add_action('admin_menu', 'wp_informations_menu_dev');
+add_action('admin_menu', 'wp_informations_submenu');
 
 
 // Content du submenu dev
@@ -130,31 +203,29 @@ function wp_informations_about_dev() {
      ?>
     <h1>Informations des développeurs</h1>
     <form method="POST" action="options.php">
-    <?php settings_fields( 'my-plugin-settings-group' ); ?>
-    <!--     <?php //( 'my-plugin-settings-group' ); ?> -->
+    <?php settings_fields( 'wp_information_settings_group_dev' ); ?>
     <table class="form-table">
-
         <tr>
             <th scope="row">Prénom :</th>
-            <td><input type="text" name="wp-info-name-dev" 
+            <td><input class="wp_information_input" type="text" name="wp-info-name-dev" 
             value="<?php echo get_option('wp-info-name-dev'); ?>" /></td>
         </tr>
 
         <tr>
             <th scope="row">Pseudo @Twitter :</th>
-            <td><input type="text" name="wp-info-twitter-dev" 
+            <td><input class="wp_information_input" type="text" name="wp-info-twitter-dev" 
             value="<?php echo get_option('wp-info-twitter-dev'); ?>" /></td>
         </tr>
          
         <tr>
             <th scope="row">Numéro de téléphone :</th>
-            <td><input type="tel" name="wp-info-tel-dev" 
+            <td><input class="wp_information_input" type="tel" name="wp-info-tel-dev" 
             value="<?php echo get_option('wp-info-tel-dev'); ?>" /></td>
         </tr>
         
         <tr>
             <th scope="row">Email :</th>
-            <td><input type="email" name="wp-info-email-dev" 
+            <td><input class="wp_information_input" type="email" name="wp-info-email-dev" 
             value="<?php echo get_option('wp-info-email-dev'); ?>" /></td>
         </tr>
 
@@ -170,7 +241,6 @@ function wp_informations_about_dev() {
                 </select>
             </td>
         </tr>
-
     </table>
     <?php submit_button(
         'Enregistrer les informations',
@@ -185,68 +255,63 @@ function wp_informations_about_dev() {
 // Contenu du submit market
 function wp_informations_about_market() {
      ?>
-     <h1>Informations des marketeurs</h1>
+    <h1>Informations des marketeurs</h1>
     <form method="POST" action="options.php">
-        <?php settings_fields( 'my-plugin-settings-group' ); ?>
+        <?php settings_fields( 'wp_information_settings_group_market' ); ?>
         <!--     <?php //( 'my-plugin-settings-group' ); ?> -->
         <table class="form-table">
-
             <tr>
                 <th scope="row">Prénom :</th>
-                <td><input type="text" name="wp-info-name-market" 
+                <td><input class="wp_information_input" type="text" name="wp-info-name-market" 
                 value="<?php echo get_option('wp-info-name-market'); ?>" /></td>
             </tr>
 
             <tr>
                 <th scope="row">Pseudo @Twitter :</th>
-                <td><input type="text" name="wp-info-twitter-market" 
+                <td><input class="wp_information_input" type="text" name="wp-info-twitter-market" 
                 value="<?php echo get_option('wp-info-twitter-market'); ?>" /></td>
             </tr>
              
             <tr>
                 <th scope="row">Numéro de téléphone :</th>
-                <td><input type="tel" name="wp-info-tel-market" 
+                <td><input class="wp_information_input" type="tel" name="wp-info-tel-market" 
                 value="<?php echo get_option('wp-info-tel-market'); ?>" /></td>
             </tr>
             
             <tr>
                 <th scope="row">Email :</th>
-                <td><input type="email" name="wp-info-email-market" 
+                <td><input class="wp_information_input" type="email" name="wp-info-email-market" 
                 value="<?php echo get_option('wp-info-email-market'); ?>" /></td>
             </tr>
-
         </table>
-    <?php submit_button(
-        'Enregistrer les informations',
-        'primary',
-        'submit',
-        array( 'tabindex' => '' )
-        ); ?>
+        <?php submit_button(
+            'Enregistrer les informations',
+            'primary',
+            'submit',
+            array( 'tabindex' => '' )
+            ); ?>
     </form>
 <?php
 }
 
-function wp_informations_about_design() {
+// Initialisation des données de option.php pour DEV
+function wp_informations_settings_dev() {
+	register_setting( 'wp_information_settings_group_dev', 'wp-info-name-dev' );
+    register_setting( 'wp_information_settings_group_dev', 'wp-info-twitter-dev' );
+	register_setting( 'wp_information_settings_group_dev', 'wp-info-tel-dev' );
+	register_setting( 'wp_information_settings_group_dev', 'wp-info-email-dev' );
+	register_setting( 'wp_information_settings_group_dev', 'wp-info-photo-dev' );
+
 
 }
+add_action( 'admin_init', 'wp_informations_settings_dev' );
 
-function wp_informations_settings_register() {
-	register_setting( 'my-plugin-settings-group', 'wp-info-name-dev' );
-    register_setting( 'my-plugin-settings-group', 'wp-info-twitter-dev' );
-	register_setting( 'my-plugin-settings-group', 'wp-info-tel-dev' );
-	register_setting( 'my-plugin-settings-group', 'wp-info-email-dev' );
-	register_setting( 'my-plugin-settings-group', 'wp-info-photo-dev' );
-
-    register_setting( 'my-plugin-settings-group', 'wp-info-name-market' );
-    register_setting( 'my-plugin-settings-group', 'wp-info-twitter-market' );
-    register_setting( 'my-plugin-settings-group', 'wp-info-tel-market' );
-    register_setting( 'my-plugin-settings-group', 'wp-info-email-market' );
-    register_setting( 'my-plugin-settings-group', 'wp-info-photo-market' );
-
-    register_setting( 'my-plugin-settings-group', 'select' );
-    register_setting( 'my-plugin-settings-group', 'select' );
-    register_setting( 'my-plugin-settings-group', 'select' );
-    register_setting( 'my-plugin-settings-group', 'select' );
-    register_setting( 'my-plugin-settings-group', 'select' );
+// Initialisation des données de option.php pour MARKET
+function wp_informations_settings_market() {
+    register_setting( 'wp_information_settings_group_market', 'wp-info-name-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-twitter-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-tel-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-email-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-photo-market' );
 }
-add_action( 'admin_init', 'wp_informations_settings_register' );
+add_action( 'admin_init', 'wp_informations_settings_market' );
