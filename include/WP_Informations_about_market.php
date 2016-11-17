@@ -1,5 +1,5 @@
  <div class="boite">
-            <h2 class="role">Marketeur</h2>
+            <h2 class="role"><?php echo get_option('wp-info-title-second'); ?></h2>
             <table class="form-table">
                 <tr>
                     <th scope="row">Prénom :</th>
@@ -11,6 +11,12 @@
                     <th scope="row">Pseudo @Twitter :</th>
                     <td><input class="wp_information_input" type="text" name="wp-info-twitter-market" 
                     value="<?php echo get_option('wp-info-twitter-market'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">URL Facebook :</th>
+                    <td><input class="wp_information_input" type="url" name="wp-info-facebook-market" 
+                    value="<?php echo get_option('wp-info-facebook-market'); ?>"disabled='disabled' /></td>
                 </tr>
                  
                 <tr>
@@ -25,7 +31,7 @@
                     value="<?php echo get_option('wp-info-email-market'); ?>" disabled='disabled' /></td>
                 </tr>
 
-                <tr>
+<!--                 <tr>
                     <th scope="row">Rôle :</th>
                     <td>
                         <select name="select" disabled='disabled'>
@@ -36,7 +42,7 @@
                             <option name ="test5" value="<?php echo get_option('test5'); ?>">Abonné</option>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
             </table>
             <p><a href="admin.php?page=wp_about_market">Modifier</a></p>
         </div>

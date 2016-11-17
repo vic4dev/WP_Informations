@@ -1,5 +1,5 @@
         <div class="boite">
-            <h2 class="role">Développeur</h2>
+            <h2 class="role"><?php echo get_option('wp-info-title-first'); ?></h2>
             <table class="form-table">
                 <tr>
                     <th scope="row">Prénom :</th>
@@ -11,6 +11,12 @@
                     <th scope="row">Pseudo @Twitter :</th>
                     <td><input class="wp_information_input" type="text" name="wp-info-twitter-dev" 
                     value="<?php echo get_option('wp-info-twitter-dev'); ?>" disabled='disabled' /></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">URL Facebook :</th>
+                    <td><input class="wp_information_input" type="url" name="wp-info-facebook-dev" 
+                    value="<?php echo get_option('wp-info-facebook-dev'); ?>" disabled='disabled' /></td>
                 </tr>
                  
                 <tr>
@@ -25,7 +31,7 @@
                     value="<?php echo get_option('wp-info-email-dev'); ?>" disabled='disabled' /></td>
                 </tr>
 
-                <tr>
+                <!-- <tr>
                     <th scope="row">Rôle :</th>
                     <td>
                         <select name="select" disabled='disabled'>
@@ -36,7 +42,7 @@
                             <option name ="test5" value="<?php echo get_option('test5'); ?>">Abonné</option>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
             </table>
             <p>
                 <a href="admin.php?page=wp_about_dev">Modifier</a>

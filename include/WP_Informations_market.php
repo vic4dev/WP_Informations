@@ -1,7 +1,11 @@
-    <h1>Informations des marketeurs</h1>
-    <form method="POST" action="options.php">
-        <?php settings_fields( 'wp_information_settings_group_market' ); ?>
-        <!--     <?php //( 'my-plugin-settings-group' ); ?> -->
+<h1><?php echo get_option('wp-info-title-second' ); ?></h1>
+<form method="POST" action="options.php">
+    <?php settings_fields( 'wp_information_settings_group_market' ); ?>
+    <div id="test">
+        <input class="wp_information_input hide" id="tonDiv" type="text" name="wp-info-title-second" 
+                value="<?php echo get_option('wp-info-title-second'); ?>" />
+        <span id="Bouton">Ajouter / Modifier</span>   
+    </div>
         <table class="form-table">
             <tr>
                 <th scope="row">Prénom :</th>
@@ -13,6 +17,12 @@
                 <th scope="row">Pseudo @Twitter :</th>
                 <td><input class="wp_information_input" type="text" name="wp-info-twitter-market" 
                 value="<?php echo get_option('wp-info-twitter-market'); ?>" /></td>
+            </tr>
+
+            <tr>
+                <th scope="row">URL Facebook :</th>
+                <td><input class="wp_information_input" type="url" name="wp-info-facebook-market" 
+                value="<?php echo get_option('wp-info-facebook-market'); ?>" /></td>
             </tr>
              
             <tr>

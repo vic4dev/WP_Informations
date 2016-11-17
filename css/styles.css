@@ -1,42 +1,76 @@
-h2{
-	font-size: 1.5em;
+h2 {
+    font-size: 1.5em;
 }
 
 input[type=email]:disabled,
 input[type=text]:disabled,
+input[type=url]:disabled,
 input[type=tel]:disabled,
-select:disabled
- {
-	background: #dddddd;
-	color: rgba(0,0,0,0.7);
+select:disabled {
+    background: #dddddd;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 input.wp_information_input {
-	width: 200px;
+    width: 200px;
+}
+
+input.wp_information_input.hide {
+    padding: 2px;
+    width: 100px;
 }
 
 section {
-	display: flex;
-}
-div.boite {
-	width: 45%;
-	margin: 20px;
+    display: flex;
 }
 
-table tr{
-	padding: 5px;
+div.boite {
+    width: 45%;
+    margin: 20px;
+}
+
+table tr {
+    padding: 5px;
 }
 
 span#footer-thankyou,
 p#footer-upgrade {
-	display: none;
+    display: none;
+}
+
+.test {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 footer.wp_footer {
-	bottom:0;
-	position: absolute;
-	left: 0;
-	display: flex;
-	justify-content: space-between;
-	width: 95%;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+#tonDiv {
+    display: none;
+}
+
+#test {
+    display: column;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    justify-content: space-between;
+    margin-top: -5px;
+}
+
+#Bouton {
+    color: #0073aa;
+    text-decoration: underline;
+}
+
+#Bouton:hover {
+    cursor: pointer;
 }

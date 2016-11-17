@@ -35,24 +35,27 @@ add_action('admin_menu', 'Wp_Plugin_Menu_Primary');
 
 // Ajout de la Settings page + submenu dans adminbar
 function wp_informations_adminbar() {
-  global $wp_admin_bar;
-  $url_once = admin_url();
-  $wp_admin_bar->add_menu(array(
-    'id'    => 'wp_information',
-    'title' => 'WP Informations',
-    'href'  => $url_once . "admin.php?page=wp_information_menu"
+    global $wp_admin_bar;
+    $url_once = admin_url();
+    $title1 = get_option('wp-info-title-first' );
+    $title2 = get_option('wp-info-title-second' );
+
+    $wp_admin_bar->add_menu(array(
+        'id'    => 'wp_information',
+        'title' => 'WP Informations',
+        'href'  => $url_once . "admin.php?page=wp_information_menu"
     ) );
-  $wp_admin_bar->add_menu(array(
-    'id'    => 'Wp_about_dev',
-    'title' => 'Développeurs',
-    'parent'=> 'wp_information',
-    'href'  => $url_once . "admin.php?page=wp_about_dev"
+    $wp_admin_bar->add_menu(array(
+        'id'    => 'Wp_about_dev',
+        'title' => $title1,
+        'parent'=> 'wp_information',
+        'href'  => $url_once . "admin.php?page=wp_about_dev"
     ) );
-  $wp_admin_bar->add_menu(array(
-    'id'    => 'Wp_about_market',
-    'title' => 'Marketing',
-    'parent'=> 'wp_information',
-    'href'  => $url_once . "admin.php?page=wp_about_market"
+    $wp_admin_bar->add_menu(array(
+        'id'    => 'Wp_about_market',
+        'title' => $title2,
+        'parent'=> 'wp_information',
+        'href'  => $url_once . "admin.php?page=wp_about_market"
     ) ); 
 }
 add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
@@ -62,11 +65,13 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
     $plugin_name = 'WP Informations';
     $plugin_capability = 'administrator';
     $plugin_menu_slug = 'wp_information_menu';
+    $title1 = get_option('wp-info-title-first' );
+    $title2 = get_option('wp-info-title-second' );
 
     add_submenu_page( 
         $plugin_menu_slug,
         'Développeurs - ' . $plugin_name,
-        'Développeurs',
+        $title1,
         $plugin_capability,
         'wp_about_dev',
         'wp_informations_about_dev'
@@ -74,7 +79,7 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
     add_submenu_page( 
         $plugin_menu_slug,
         'Marketing - ' . $plugin_name,
-        'Marketing',
+        $title2,
         $plugin_capability,
         'wp_about_market',
         'wp_informations_about_market'
@@ -102,27 +107,31 @@ function wp_informations_settings() {
 function wp_informations_about_dev() {
     wp_register_style( 'add_admin_CSS', plugins_url( '/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
+    wp_register_script( 'add_admin_JS', plugins_url( '/js/script.js',__FILE__ ) );
+    wp_enqueue_script( 'add_admin_JS' );
     add_action( 'wp_enqueue_scripts', 'wpp_add_assets' );
     require_once ( plugin_dir_path(__FILE__) . '/include/WP_Informations_dev.php' );
-    require_once ( plugin_dir_path(__FILE__) . '/include/WP_Informations_footer.php' );
 }
 
 // Contenu du submenu market
 function wp_informations_about_market() {
     wp_register_style( 'add_admin_CSS', plugins_url( '/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
+    wp_register_script( 'add_admin_JS', plugins_url( '/js/script.js',__FILE__ ) );
+    wp_enqueue_script( 'add_admin_JS' );
     add_action( 'wp_enqueue_scripts', 'wpp_add_assets' );
     require_once ( plugin_dir_path(__FILE__) . '/include/WP_Informations_market.php' );
-    require_once ( plugin_dir_path(__FILE__) . '/include/WP_Informations_footer.php' );
 }
 
 // Initialisation des données de option.php pour DEV
 function wp_informations_settings_dev() {
 	register_setting( 'wp_information_settings_group_dev', 'wp-info-name-dev' );
     register_setting( 'wp_information_settings_group_dev', 'wp-info-twitter-dev' );
+    register_setting( 'wp_information_settings_group_dev', 'wp-info-facebook-dev' );
 	register_setting( 'wp_information_settings_group_dev', 'wp-info-tel-dev' );
 	register_setting( 'wp_information_settings_group_dev', 'wp-info-email-dev' );
 	register_setting( 'wp_information_settings_group_dev', 'wp-info-photo-dev' );
+    register_setting( 'wp_information_settings_group_dev', 'wp-info-title-first' );
 }
 add_action( 'admin_init', 'wp_informations_settings_dev' );
 
@@ -130,8 +139,10 @@ add_action( 'admin_init', 'wp_informations_settings_dev' );
 function wp_informations_settings_market() {
     register_setting( 'wp_information_settings_group_market', 'wp-info-name-market' );
     register_setting( 'wp_information_settings_group_market', 'wp-info-twitter-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-facebook-market' );
     register_setting( 'wp_information_settings_group_market', 'wp-info-tel-market' );
     register_setting( 'wp_information_settings_group_market', 'wp-info-email-market' );
     register_setting( 'wp_information_settings_group_market', 'wp-info-photo-market' );
+    register_setting( 'wp_information_settings_group_market', 'wp-info-title-second' );
 }
 add_action( 'admin_init', 'wp_informations_settings_market' );
