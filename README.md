@@ -12,7 +12,7 @@ Allow user's admin (editor, author, administrator, etc..) to save some contact i
 
 This section describe how to install the plugin and get it working
 
-1. Download and upload the content of the zip (including the folder) to the '/wp-content/plugins/' directory.
+1. Download and upload the content of the zip (including the folder) to the '''/wp-content/plugins/''' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Visit the settings page 'WP information' to write your information according to your role
 
