@@ -10,9 +10,9 @@ Allow user's admin (editor, author, administrator, etc..) to save some contact i
 
 This section describe how to install the plugin and get it working
 
-1. Download and upload the content of the zip (including the folder) to the '/wp-content/plugins/' directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Visit the settings page 'WP information' to write your information according to your role
+1. __Download and upload the content__ of the zip (including the folder) to the '/wp-content/plugins/' directory.
+2. __Activate__ the plugin through the 'Plugins' menu in WordPress.
+3. Visit the settings page 'WP information' to __write your informations according to your role__.
 
 ## How does it work ?
 
@@ -32,4 +32,4 @@ To add your information, click on the link bellow the form and complete differen
 
 ## Author(s)
 
-Victor de la Fouchardiere - *Initial work* - Vic4dev(https://github.com/vic4dev)
+Victor de la Fouchardiere - *Initial work* - [Vic4dev](https://github.com/vic4dev)
