@@ -1,0 +1,52 @@
+h2 {
+    font-size: 1.5em;
+}
+
+input[type=email]:disabled,
+input[type=text]:disabled,
+input[type=url]:disabled,
+input[type=tel]:disabled,
+select:disabled {
+    background: #dddddd;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+input.wp_information_input {
+    width: 250px;
+}
+
+input.wp_information_input.hide {
+    padding: 2px;
+    width: 100px;
+}
+
+section {
+    display: flex;
+}
+
+div.boite {
+    width: 45%;
+    margin: 20px;
+}
+
+table tr {
+    padding: 5px;
+}
+
+span#footer-thankyou,
+p#footer-upgrade {
+    display: none;
+}
+
+footer.wp_footer {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.wp_url {
+    color: #0073aa!important;
+}
