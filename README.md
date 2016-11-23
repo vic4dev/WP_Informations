@@ -22,7 +22,7 @@ This plugin is very simple.. After activating WP Informations, go to the setting
 
 To add your information, click on the link bellow the form and complete differents fields (name, tel, email...)
 
-![alt text](http://image.prntscr.com/image/6df79b013e9d4d56b64a971d497fc27f.jpeg)
+![alt text](http://image.prntscr.com/image/3a0215661c2e4e5c8e5bad95bc0dbd5b.jpg)
 
 ## Build with 
 
