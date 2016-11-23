@@ -24,6 +24,11 @@ To add your information, click on the link bellow the form and complete differen
 
 ![alt text](http://image.prntscr.com/image/3a0215661c2e4e5c8e5bad95bc0dbd5b.jpg)
 
+## Languages available
+
+* English
+* French
+
 ## Build with 
 
 * PHP 
