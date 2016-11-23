@@ -1,4 +1,4 @@
-![alt text](http://image.prntscr.com/image/905267d9410b42a782d9782cc619c924.png)
+![alt text](http://image.prntscr.com/image/6c7155a30b8940c7a8a0e93c332d383f.png)
 
 ## Description
 
