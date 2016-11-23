@@ -3,7 +3,9 @@
 defined( 'ABSPATH' )
  or die ( 'No direct load !' );
 
-// Ajouter la Settings Page à Sidebar Admin
+/**
+ADDING SETTING PAGE TO THE ADMIN SIDEBAR 
+*/
 function Wp_Plugin_Menu_Primary() {
 	add_menu_page(
         // $page_title
@@ -24,7 +26,9 @@ function Wp_Plugin_Menu_Primary() {
 }
 add_action('admin_menu', 'Wp_Plugin_Menu_Primary');
 
-// Ajout de la Settings page + submenu dans adminbar
+/**
+ADDING SETTING PAGE & SUBMENU TO THE ADMINBAR 
+*/
 function wp_informations_adminbar() {
     global $wp_admin_bar;
     $url_once = admin_url();
@@ -61,7 +65,9 @@ function wp_informations_adminbar() {
 }
 add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
 
-// Ajout des submenus dans la sidebar
+/**
+ADDING SUBMENU TO THE ADMIN SIDEBAR 
+*/
  function wp_informations_submenu() {
     $plugin_name = __('WP Informations', 'wp_op');
     $plugin_capability = 'administrator';
@@ -102,18 +108,20 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
  }  
 add_action('admin_menu', 'wp_informations_submenu');
 
-// Contenu de la Settings Page Principale
+/**
+CONTENT OF THE SETTING PAGE
+*/
 function wp_informations_settings() {
     wp_register_style( 'add_admin_CSS', plugins_url('../../library/css/styles.css', __FILE__) );
     wp_enqueue_style( 'add_admin_CSS' );
     add_action( 'wp_enqueue_scripts', 'wpp_add_assets' );
     ?>
     <br/>
-        <div id="test2">
-            <?php echo '<img src="' . plugins_url( '../../library/img/chatting.png', __FILE__ ) . '" > ';?>
-            <h1>WP Informations</h1>
-        </div>
-    <div id="test">
+    <div id="title_primary_settings">
+        <?php echo '<img src="' . plugins_url( '../../library/img/chatting.png', __FILE__ ) . '" > ';?>
+        <h1>WP Informations</h1>
+    </div>
+    <div id="slog_donate">
         <p id="slog"><?php _e('Stay in touch with different site administrators by filling in your information according to your role.', 'wp_op');?></p>
         <a href="http://www.paypal.me/VDelaFouchardiere" ><?php echo '<img src="' . plugins_url( '../../library/img/faire-un-don-plugin-paypal.png', __FILE__ ) . '" > ';?></a>
     </div>
@@ -122,14 +130,16 @@ function wp_informations_settings() {
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_admin_principal.php' ); ?>
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_editor_principal.php' ); ?>
     </section>
-    <section>
+    <section id="second">
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_author_principal.php' ); ?>
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_contributor_principal.php' ); ?>
     </section>
     <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_footer.php' );
 }
 
-// Content du submenu admin
+/**
+CONTENT OF THE PAGE [ADMIN]
+*/
 function wp_informations_about_admin() {
     wp_register_style( 'add_admin_CSS', plugins_url( '../../library/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
@@ -139,7 +149,9 @@ function wp_informations_about_admin() {
     require_once ( WP_INFORMATIONS_DIR . '/inc/wp_admin.php' );
 }
 
-// Contenu du submenu editor
+/**
+CONTENT OF THE PAGE [EDITOR]
+*/
 function wp_informations_about_editor() {
     wp_register_style( 'add_admin_CSS', plugins_url( '../../library/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
@@ -149,7 +161,9 @@ function wp_informations_about_editor() {
     require_once ( WP_INFORMATIONS_DIR . '/inc/wp_editor.php' );
 }
 
-// Contenu du submenu author
+/**
+CONTENT OF THE PAGE [AUTHOR]
+*/
 function wp_informations_about_author() {
     wp_register_style( 'add_admin_CSS', plugins_url( '../../library/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
@@ -159,7 +173,9 @@ function wp_informations_about_author() {
     require_once ( WP_INFORMATIONS_DIR . '/inc/wp_author.php' );
 }
 
-// Contenu du submenu contributor
+/**
+CONTENT OF THE PAGE [CONTRIBUTOR]
+*/
 function wp_informations_about_contributor() {
     wp_register_style( 'add_admin_CSS', plugins_url( '../../library/css/styles.css',__FILE__ ) );
     wp_enqueue_style( 'add_admin_CSS' );
@@ -170,7 +186,9 @@ function wp_informations_about_contributor() {
 }
 
 
-// Initialisation des données de option.php pour admin
+/**
+DATA INITILISATION TO THE OPTIONS.PHP [ADMIN]
+*/
 function wp_informations_settings_admin() {
 	register_setting( 'wp_information_settings_group_admin', 'wp-info-name-admin' );
     register_setting( 'wp_information_settings_group_admin', 'wp-info-twitter-admin' );
@@ -181,7 +199,9 @@ function wp_informations_settings_admin() {
 }
 add_action( 'admin_init', 'wp_informations_settings_admin' );
 
-// Initialisation des données de option.php pour EDITOR
+/**
+DATA INITILISATION TO THE OPTIONS.PHP [EDITOR]
+*/
 function wp_informations_settings_editor() {
     register_setting( 'wp_information_settings_group_editor', 'wp-info-name-editor' );
     register_setting( 'wp_information_settings_group_editor', 'wp-info-twitter-editor' );
@@ -192,7 +212,9 @@ function wp_informations_settings_editor() {
 }
 add_action( 'admin_init', 'wp_informations_settings_editor' );
 
-// Initialisation des données de option.php pour AUTHOR
+/**
+DATA INITILISATION TO THE OPTIONS.PHP [AUTHOR]
+*/
 function wp_informations_settings_author() {
     register_setting( 'wp_information_settings_group_author', 'wp-info-name-author' );
     register_setting( 'wp_information_settings_group_author', 'wp-info-twitter-author' );
@@ -203,7 +225,9 @@ function wp_informations_settings_author() {
 }
 add_action( 'admin_init', 'wp_informations_settings_author' );
 
-// Initialisation des données de option.php pour CONTRIBUTOR
+/**
+DATA INITILISATION TO THE OPTIONS.PHP [CONTRIBUTOR]
+*/
 function wp_informations_settings_contributor() {
     register_setting( 'wp_information_settings_group_contributor', 'wp-info-name-contributor' );
     register_setting( 'wp_information_settings_group_contributor', 'wp-info-twitter-contributor' );
