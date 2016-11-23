@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Informations
- * Description: Enregistrez dès-maintenant les informations de tous les admin pour rester en contact très facilement !
+ * Description: hey !
  * Version:     1.0
  * Author:      Victor
  * Text Domain: wp_op

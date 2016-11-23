@@ -31,30 +31,30 @@ function wp_informations_adminbar() {
 
     $wp_admin_bar->add_menu(array(
         'id'    => 'wp_information',
-        'title' => 'WP Informations',
+        'title' => __('WP Informations', 'wp_op'),
         'href'  => $url_once . "admin.php?page=wp_information_menu"
     ) );
     $wp_admin_bar->add_menu(array(
         'id'    => 'Wp_about_admin',
-        'title' => 'Administrateur',
+        'title' => __('Administrator', 'wp_op'),
         'parent'=> 'wp_information',
         'href'  => $url_once . "admin.php?page=wp_about_admin"
     ) );
     $wp_admin_bar->add_menu(array(
         'id'    => 'Wp_about_editor',
-        'title' => 'Editeur',
+        'title' => __('Editor', 'wp_op'),
         'parent'=> 'wp_information',
         'href'  => $url_once . "admin.php?page=wp_about_editor"
     ) );
     $wp_admin_bar->add_menu(array(
         'id'    => 'Wp_about_author',
-        'title' => 'Auteur',
+        'title' => __('Author', 'wp_op'),
         'parent'=> 'wp_information',
         'href'  => $url_once . "admin.php?page=wp_about_author"
     ) );
     $wp_admin_bar->add_menu(array(
         'id'    => 'Wp_about_contributor',
-        'title' => 'Contributeur',
+        'title' => __('Contributor', 'wp_op'),
         'parent'=> 'wp_information',
         'href'  => $url_once . "admin.php?page=wp_about_contributor"
     ) );
@@ -63,14 +63,14 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
 
 // Ajout des submenus dans la sidebar
  function wp_informations_submenu() {
-    $plugin_name = 'WP Informations';
+    $plugin_name = __('WP Informations', 'wp_op');
     $plugin_capability = 'administrator';
     $plugin_menu_slug = 'wp_information_menu';
 
     add_submenu_page( 
         $plugin_menu_slug,
         'Administrateur - ' . $plugin_name,
-        'Administrateur',
+        __('Administrator', 'wp_op'),
         $plugin_capability,
         'wp_about_admin',
         'wp_informations_about_admin'
@@ -78,7 +78,7 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
     add_submenu_page( 
         $plugin_menu_slug,
         'Editeur - ' . $plugin_name,
-        'Editeur',
+        __('Editor', 'wp_op'),
         $plugin_capability,
         'wp_about_editor',
         'wp_informations_about_editor'
@@ -86,7 +86,7 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
     add_submenu_page(
         $plugin_menu_slug,
         'Auteur - '. $plugin_name,
-        'Auteur',
+        __('Author', 'wp_op'),
         $plugin_capability,
         'wp_about_author',
         'wp_informations_about_author'
@@ -94,7 +94,7 @@ add_action('wp_before_admin_bar_render', 'wp_informations_adminbar' );
     add_submenu_page(
         $plugin_menu_slug,
         'Contributeur - '. $plugin_name,
-        'Contributeur',
+        __('Contributor', 'wp_op'),
         $plugin_capability,
         'wp_about_contributor',
         'wp_informations_about_contributor'
@@ -109,9 +109,16 @@ function wp_informations_settings() {
     add_action( 'wp_enqueue_scripts', 'wpp_add_assets' );
     ?>
     <br/>
-    <h1>WP Informations</h1>
+        <div id="test2">
+            <?php echo '<img src="' . plugins_url( '../../library/img/chatting.png', __FILE__ ) . '" > ';?>
+            <h1>WP Informations</h1>
+        </div>
+    <div id="test">
+        <p id="slog"><?php _e('Stay in touch with different site administrators by filling in your information according to your role.', 'wp_op');?></p>
+        <a href="http://www.paypal.me/VDelaFouchardiere" ><?php echo '<img src="' . plugins_url( '../../library/img/faire-un-don-plugin-paypal.png', __FILE__ ) . '" > ';?></a>
+    </div>
     <br>
-    <section>
+    <section id="first">
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_admin_principal.php' ); ?>
         <?php require_once ( WP_INFORMATIONS_DIR . '/inc/wp_editor_principal.php' ); ?>
     </section>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr_FR\n"
-"POT-Creation-Date: 2016-11-21 15:03+0100\n"
-"PO-Revision-Date: 2016-11-21 15:03+0100\n"
+"POT-Creation-Date: 2016-11-23 12:28+0100\n"
+"PO-Revision-Date: 2016-11-23 12:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: Victor de la Fouchardière\n"
 "Language: fr\n"
@@ -16,58 +16,88 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: inc/wp_admin.php:1 inc/wp_admin_principal.php:2
+#: inc/admin/admin.php:34
+msgid "WP Informations"
+msgstr "WP Informations"
+
+#: inc/admin/admin.php:39 inc/admin/admin.php:73 inc/wp_admin.php:3
+#: inc/wp_admin_principal.php:4
 msgid "Administrator"
 msgstr "Administrateur"
 
-#: inc/wp_admin.php:6 inc/wp_admin_principal.php:5 inc/wp_author.php:6
-#: inc/wp_author_principal.php:5 inc/wp_contributor.php:6
-#: inc/wp_contributor_principal.php:5 inc/wp_editor.php:6
-#: inc/wp_editor_principal.php:5
-msgid "Name"
-msgstr "Prénom"
+#: inc/admin/admin.php:45 inc/admin/admin.php:81 inc/wp_editor.php:3
+#: inc/wp_editor_principal.php:4
+msgid "Editor"
+msgstr "Editeur"
 
-#: inc/wp_admin.php:12 inc/wp_admin_principal.php:11 inc/wp_author.php:12
-#: inc/wp_author_principal.php:10 inc/wp_contributor.php:12
-#: inc/wp_contributor_principal.php:10 inc/wp_editor.php:12
-#: inc/wp_editor_principal.php:10
-msgid "Username"
-msgstr "Pseudo"
-
-#: inc/wp_admin.php:24 inc/wp_admin_principal.php:23 inc/wp_author.php:24
-#: inc/wp_author_principal.php:20 inc/wp_contributor.php:24
-#: inc/wp_contributor_principal.php:20 inc/wp_editor.php:24
-#: inc/wp_editor_principal.php:20
-msgid "Telephone number"
-msgstr "Numéro de téléphone"
-
-#: inc/wp_admin.php:29 inc/wp_admin_principal.php:29 inc/wp_author.php:29
-#: inc/wp_author_principal.php:25 inc/wp_contributor.php:30
-#: inc/wp_contributor_principal.php:25 inc/wp_editor.php:29
-#: inc/wp_editor_principal.php:25
-msgid "Email"
-msgstr "Email"
-
-#: inc/wp_admin_principal.php:35 inc/wp_author_principal.php:30
-#: inc/wp_contributor_principal.php:30 inc/wp_editor_principal.php:30
-msgid "Modify"
-msgstr "Modifier"
-
-#: inc/wp_author.php:1 inc/wp_author_principal.php:2
+#: inc/admin/admin.php:51 inc/admin/admin.php:89 inc/wp_author.php:3
+#: inc/wp_author_principal.php:4
 msgid "Author"
 msgstr "Auteur"
 
-#: inc/wp_contributor.php:1 inc/wp_contributor_principal.php:2
+#: inc/admin/admin.php:57 inc/admin/admin.php:97 inc/wp_contributor.php:3
+#: inc/wp_contributor_principal.php:4
 msgid "Contributor"
 msgstr "Contributeur"
 
-#: inc/wp_editor.php:1 inc/wp_editor_principal.php:2
-msgid "Editor"
-msgstr "Editeur"
+#: inc/admin/admin.php:117
+msgid ""
+"Stay in touch with different site administrators by filling in your "
+"information according to your role."
+msgstr ""
+"Restez facilement en contact entre les différents administrateurs du site en "
+"remplissant vos informations selon votre rôle."
+
+#: inc/wp_admin.php:9 inc/wp_admin_principal.php:8 inc/wp_author.php:9
+#: inc/wp_author_principal.php:8 inc/wp_contributor.php:9
+#: inc/wp_contributor_principal.php:8 inc/wp_editor.php:9
+#: inc/wp_editor_principal.php:8
+msgid "Name"
+msgstr "Prénom"
+
+#: inc/wp_admin.php:15 inc/wp_admin_principal.php:14 inc/wp_author.php:15
+#: inc/wp_author_principal.php:13 inc/wp_contributor.php:15
+#: inc/wp_contributor_principal.php:13 inc/wp_editor.php:15
+#: inc/wp_editor_principal.php:13
+msgid "Username"
+msgstr "Pseudo"
+
+#: inc/wp_admin.php:27 inc/wp_admin_principal.php:26 inc/wp_author.php:27
+#: inc/wp_author_principal.php:23 inc/wp_contributor.php:27
+#: inc/wp_contributor_principal.php:23 inc/wp_editor.php:27
+#: inc/wp_editor_principal.php:23
+msgid "Telephone number"
+msgstr "Numéro de téléphone"
+
+#: inc/wp_admin.php:32 inc/wp_admin_principal.php:32 inc/wp_author.php:32
+#: inc/wp_author_principal.php:28 inc/wp_contributor.php:33
+#: inc/wp_contributor_principal.php:28 inc/wp_editor.php:32
+#: inc/wp_editor_principal.php:28
+msgid "Email"
+msgstr "Email"
+
+#: inc/wp_admin_principal.php:38 inc/wp_author_principal.php:33
+#: inc/wp_contributor_principal.php:33 inc/wp_editor_principal.php:33
+msgid "Modify"
+msgstr "Modifier"
 
 #: inc/wp_footer.php:3
 msgid "If you like to use WP Informations, please rate us on"
 msgstr "Si vous aimez utiliser WP Informations, veuillez nous évaluer sur"
+
+#~ msgid ""
+#~ "Stay easely in touch with different site administrators by filling in "
+#~ "your information according to your role"
+#~ msgstr ""
+#~ "Restez facilement en contact entre les différents administrateurs du site "
+#~ "en remplissant vos informations selon votre rôle."
+
+#~ msgid ""
+#~ "Stay in touch with different site administrators by filling in your "
+#~ "information according to your role"
+#~ msgstr ""
+#~ "Restez facilement en contact entre les différents administrateurs du site "
+#~ "en remplissant vos informations selon votre rôle."
 
 #~ msgid "If you like to use WP Information, please rate us on"
 #~ msgstr "Si vous aimez utiliser WP Informations, veuillez nous évaluer sur"
