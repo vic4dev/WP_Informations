@@ -4,7 +4,7 @@
 
 Allow user's admin (editor, author, administrator, etc..) to save some contact informations about them. The goal of this plugin is to faciliate the communication between the differents user's admin.
 
-![alt text](http://image.prntscr.com/image/1aaaa2b9915a4c59990e2744f561f5b6.jpeg)
+![alt text](http://image.prntscr.com/image/7357ea9680884ccba8ae2fa200a0c123.jpg)
 
 ## Installation
 
