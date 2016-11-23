@@ -18,7 +18,7 @@ This section describe how to install the plugin and get it working
 
 This plugin is very simple.. After activating WP Informations, go to the setting page to see the dashboard of the plugin. You can see all informations about all of the user's admin. 
 
-![alt text](http://image.prntscr.com/image/08e63b69ebe547e796d577a4aa633c6d.jpeg)
+![alt text](http://image.prntscr.com/image/37e6d057759149b18a4d6ccacc170b9d.jpg)
 
 To add your information, click on the link bellow the form and complete differents fields (name, tel, email...)
 
