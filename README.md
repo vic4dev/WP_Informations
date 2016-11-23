@@ -1,4 +1,4 @@
-<div style="text-align:center">![alt text](http://image.prntscr.com/image/ea5ec6d9800946a8bb2cc0358a913c30.png)</div>
+->![alt text](http://image.prntscr.com/image/ea5ec6d9800946a8bb2cc0358a913c30.png)
 
 ## Description
 
