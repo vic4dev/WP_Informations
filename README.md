@@ -37,4 +37,4 @@ To add your information, click on the link bellow the form and complete differen
 
 ## Author(s)
 
-Victor de la Fouchardiere - *Initial work* - [Vic4dev](https://github.com/vic4dev)
+Victor de la Fouchardiere - *Initial work* - [viclafouch](https://github.com/viclafouch)
